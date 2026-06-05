@@ -58,3 +58,19 @@ Where the closure constants are defined as:
 ## 📈 Verification & Validation (V&V)
 * **Mesh Independence Study**: Verified that refining the grid size from $7,805$ elements to $15,000$ elements resulted in less than a $0.8\%$ change in computed pressure drop, confirming grid independence.
 * **Experimental Comparison**: Validation against wind tunnel experimental data shows that numerical predictions of static pressure drop and velocity profiles agree within **$\pm 3\%$** across the operating envelope.
+
+---
+
+## 🛠️ How to Run & View the Simulation
+Since this is an ANSYS Workbench project:
+1. **Prerequisites**: ANSYS Workbench (with Fluent and Mechanical modules installed).
+2. **Steps to Run**:
+   - Open **ANSYS Workbench** and load the design geometry or mesh file.
+   - Set the solver type to **Pressure-Based, Steady**.
+   - Under models, select **Standard $k-\epsilon$ (SKE)** turbulence model with standard wall functions.
+   - Define materials: Air with density $\rho = 1.2256 \text{ kg/m}^3$.
+   - Set Boundary Conditions: Pressure Inlet ($101,325\text{ Pa}$) and Pressure Outlet ($96,366.32\text{ Pa}$).
+   - Run **Hybrid Initialization** (10 iterations).
+   - Set the calculation iterations to $1000$ and click **Calculate** to solve until residuals fall below $10^{-6}$.
+   - Open **CFD-Post** to view contours (static/dynamic pressure, velocity vectors, and wall shear stress).
+3. **Reference Documentation**: Read the full research details in the [CFD Analysis Report (PDF)](file:///C:/Users/LLM-Test/.gemini/antigravity-ide/scratch/opprah-portfolio/CFD-Axial-Flow-Fan-Analysis/Computational_Fluid_Dynamics_Analysis_of_Flow_Through_a_Computer_Cooling_Axial_Flow_Fan._55%20(3).pdf).
