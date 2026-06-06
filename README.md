@@ -274,18 +274,12 @@ The MATLAB scripts in this repository are post-processing utilities only; the CF
 
 It is worth distinguishing clearly between the tools that were used in a taught context (undergraduate modules) and the tools that were acquired through self-directed study after graduation.
 
-**Taught during the undergraduate programme (Wrexham University, BEng Aeronautical and Mechanical Engineering, 2016 to 2020):**
+**Taught during the undergraduate programme (Wrexham University, BEng Aeronautical and Mechanical Engineering, 2016 to 2020):** this report maps to a single module, with a small amount of background from the rest of the BEng.
 
-The numerical methods, aerodynamics, and report-writing skills that underpin this project were taught in the BEng programme. The exact combination of modules and the specific commercial software in use at the time are not separately itemised here, because the value of this section is in the boundary between the taught chapter and the self-taught chapter that follows, not in a module-by-module transcript.
+- **The CFD module (Mechanical Engineering Modelling and Simulation, module leader Jhon Paul Roque MRAeS).** The ANSYS Workbench workflow (SpaceClaim geometry to Fluent meshing to Fluent solution to CFD-Post visualisation to ANSYS Mechanical for FEA), and the two-way System Coupling between Fluent and Mechanical. The residual-plot conventions (continuity, momentum, k, epsilon dipping under the 1e-6 threshold) and the mesh-independence procedure (three successively finer meshes, monitoring the pressure-rise across the fan) also come from that module.
+- **Background from the BEng.** The theoretical aerodynamics, the gas-turbine theory, the underlying engineering mathematics (ODEs and PDEs, numerical methods) were covered elsewhere in the BEng and provide the engineering-science context for the CFD report.
 
-In broad terms, the taught chapter covered:
 
-- The engineering mathematics that supports the work: differential equations, numerical methods, and stability analysis.
-- The relevant engineering science for each project (aerodynamics, heat transfer, energy systems, or aircraft design, depending on the assignment).
-- MATLAB for numerical-modelling assignments, including vectorised array operations, plotting, and small optimisation problems.
-- Technical report writing in British English, including structure, figure presentation, and referencing.
-
-The remainder of the work in this repository (the choice of specific software, the design of the figures, the addition of 3D visualisations, the conversion of Excel data to web-friendly formats, and the way the report is published on GitHub) is the self-taught chapter below.
 
 **Self-taught after graduation, in the home laboratory:**
 
