@@ -274,10 +274,12 @@ The MATLAB scripts in this repository are post-processing utilities only; the CF
 
 It is worth distinguishing clearly between the tools that were used in a taught context (undergraduate modules) and the tools that were acquired through self-directed study after graduation.
 
-**Taught during the undergraduate programme (Wrexham University, BEng Aeronautical and Mechanical Engineering, 2016 to 2020):** this report maps to a single module, with a small amount of background from the rest of the BEng.
+**The taught chapter (BEng Aeronautical and Mechanical Engineering, Wrexham University, 2016 to 2020):** this report is a write-up of a single assignment, with a small amount of background from elsewhere in the BEng.
 
-- **The CFD module (Mechanical Engineering Modelling and Simulation, module leader Jhon Paul Roque MRAeS).** The ANSYS Workbench workflow (SpaceClaim geometry to Fluent meshing to Fluent solution to CFD-Post visualisation to ANSYS Mechanical for FEA), and the two-way System Coupling between Fluent and Mechanical. The residual-plot conventions (continuity, momentum, k, epsilon dipping under the 1e-6 threshold) and the mesh-independence procedure (three successively finer meshes, monitoring the pressure-rise across the fan) also come from that module.
-- **Background from the BEng.** The theoretical aerodynamics, the gas-turbine theory, the underlying engineering mathematics (ODEs and PDEs, numerical methods) were covered elsewhere in the BEng and provide the engineering-science context for the CFD report.
+- **The CFD module (Mechanical Engineering Modelling and Simulation, module leader Jhon Paul Roque MRAeS).** The ANSYS Workbench workflow (SpaceClaim geometry to Fluent meshing to Fluent solution to CFD-Post visualisation to ANSYS Mechanical for FEA) and the two-way System Coupling between Fluent and Mechanical. The residual-plot conventions (continuity, momentum, k, epsilon dipping under the 1e-6 threshold) and the mesh-independence procedure (three successively finer meshes, monitoring the pressure-rise across the fan) also come from this module. I owe a lot to this module : it is where I learned that CFD is 80 percent setup and 20 percent interpretation, and that the mesh is everything.
+- **Background from the BEng.** The theoretical aerodynamics, the gas-turbine theory, and the underlying engineering mathematics (ODEs and PDEs, numerical methods) were covered elsewhere in the BEng and provide the engineering-science context for the CFD report.
+
+
 
 
 
