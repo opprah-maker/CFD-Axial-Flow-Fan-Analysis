@@ -44,8 +44,6 @@ The complete report is available as a PDF:
 |---|---|
 | Numerical Modelling: CFD & FSI of an Axial-Flow Fan | [`reports/6-Numerical-Modelling.pdf`](reports/6-Numerical-Modelling.pdf) |
 
-A plain-text extract is also included in [`reports/6-Numerical-Modelling_text.txt`](reports/6-Numerical-Modelling_text.txt).
-
 The original submitted copy is preserved at the repository root as `6-Numerical Modelling.docx`.
 
 ---
