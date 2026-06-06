@@ -117,24 +117,70 @@ ANSYS System Coupling links the Fluent pressure field to the Mechanical structur
 
 All 16 figures are extracted from the original report and renamed sequentially.
 
-| Fig. | Preview | Description |
-|---|---|---|
-| 1 | <a href="images/figure-01.png"><img src="images/figure-01.png" width="120" alt="Figure 1"></a> | Velocity streamlines from ANSYS Fluent — 3D streamline visualisation showing flow through the fan assembly, colour-coded by velocity magnitude (0–9 m/s), showing tip vortices and wake structure |
-| 2 | <a href="images/figure-02.png"><img src="images/figure-02.png" width="120" alt="Figure 2"></a> | Pressure contours on blade surfaces — blade surface pressure distribution from ANSYS CFD-Post, pressure scale blue (−400 Pa) to red (+600 Pa) relative to ambient, spanwise and chordwise variation |
-| 3 | <a href="images/figure-03.png"><img src="images/figure-03.png" width="120" alt="Figure 3"></a> | NACA 0012 airfoil mesh — 2D computational mesh around the validation airfoil with boundary layer resolution |
-| 4 | <a href="images/figure-04.png"><img src="images/figure-04.png" width="120" alt="Figure 4"></a> | NACA 0012 lift coefficient vs. angle of attack — CFD vs. experimental wind-tunnel data, showing agreement within 3.2% up to 14° AoA |
-| 5 | <a href="images/figure-05.png"><img src="images/figure-05.png" width="120" alt="Figure 5"></a> | Fan geometry in ANSYS DesignModeler — 3D model of the 60mm impeller with 6 NACA 0012 blades and cylindrical housing |
-| 6 | <a href="images/figure-06.png"><img src="images/figure-06.png" width="120" alt="Figure 6"></a> | Computational domain — fluid volume around the fan with inlet, outlet, and housing walls |
-| 7 | <a href="images/figure-07.png"><img src="images/figure-07.png" width="120" alt="Figure 7"></a> | Tetrahedral mesh — global view of the unstructured mesh with inflation layers on blade surfaces |
-| 8 | <a href="images/figure-08.png"><img src="images/figure-08.png" width="120" alt="Figure 8"></a> | Mesh quality metrics — skewness and orthogonal quality histograms |
-| 9 | <a href="images/figure-09.png"><img src="images/figure-09.png" width="120" alt="Figure 9"></a> | Velocity magnitude contour at mid-span — showing the throughflow velocity distribution and tip leakage |
-| 10 | <a href="images/figure-10.png"><img src="images/figure-10.png" width="120" alt="Figure 10"></a> | Static pressure contour — pressure field around the fan assembly |
-| 11 | <a href="images/figure-11.png"><img src="images/figure-11.png" width="120" alt="Figure 11"></a> | Turbulent kinetic energy contour — k distribution showing regions of high turbulence near blade tips and housing |
-| 12 | <a href="images/figure-12.png"><img src="images/figure-12.png" width="120" alt="Figure 12"></a> | Wall shear stress on blade — viscous stress distribution on blade surfaces |
-| 13 | <a href="images/figure-13.png"><img src="images/figure-13.png" width="120" alt="Figure 13"></a> | FSI: von Mises stress on blade — structural stress field from coupled FSI, maximum 15.2 MPa at blade root |
-| 14 | <a href="images/figure-14.png"><img src="images/figure-14.png" width="120" alt="Figure 14"></a> | FSI: total deformation — blade deflection under aerodynamic load, maximum 0.032 mm at tip |
-| 15 | <a href="images/figure-15.png"><img src="images/figure-15.png" width="120" alt="Figure 15"></a> | Convergence history — residuals for continuity, momentum, k, and omega all below 10⁻⁵ |
-| 16 | <a href="images/figure-16.png"><img src="images/figure-16.png" width="120" alt="Figure 16"></a> | Performance curve — flow rate vs. pressure rise at the optimal 30° installation angle |
+**Figure 1** — Velocity streamlines from ANSYS Fluent — 3D streamline visualisation showing flow through the fan assembly, colour-coded by velocity magnitude (0–9 m/s), showing tip vortices and wake structure
+
+[![](images/figure-01.png)](images/figure-01.png)
+
+**Figure 2** — Pressure contours on blade surfaces — blade surface pressure distribution from ANSYS CFD-Post, pressure scale blue (−400 Pa) to red (+600 Pa) relative to ambient, spanwise and chordwise variation
+
+[![](images/figure-02.png)](images/figure-02.png)
+
+**Figure 3** — NACA 0012 airfoil mesh — 2D computational mesh around the validation airfoil with boundary layer resolution
+
+[![](images/figure-03.png)](images/figure-03.png)
+
+**Figure 4** — NACA 0012 lift coefficient vs. angle of attack — CFD vs. experimental wind-tunnel data, showing agreement within 3.2% up to 14° AoA
+
+[![](images/figure-04.png)](images/figure-04.png)
+
+**Figure 5** — Fan geometry in ANSYS DesignModeler — 3D model of the 60mm impeller with 6 NACA 0012 blades and cylindrical housing
+
+[![](images/figure-05.png)](images/figure-05.png)
+
+**Figure 6** — Computational domain — fluid volume around the fan with inlet, outlet, and housing walls
+
+[![](images/figure-06.png)](images/figure-06.png)
+
+**Figure 7** — Tetrahedral mesh — global view of the unstructured mesh with inflation layers on blade surfaces
+
+[![](images/figure-07.png)](images/figure-07.png)
+
+**Figure 8** — Mesh quality metrics — skewness and orthogonal quality histograms
+
+[![](images/figure-08.png)](images/figure-08.png)
+
+**Figure 9** — Velocity magnitude contour at mid-span — showing the throughflow velocity distribution and tip leakage
+
+[![](images/figure-09.png)](images/figure-09.png)
+
+**Figure 10** — Static pressure contour — pressure field around the fan assembly
+
+[![](images/figure-10.png)](images/figure-10.png)
+
+**Figure 11** — Turbulent kinetic energy contour — k distribution showing regions of high turbulence near blade tips and housing
+
+[![](images/figure-11.png)](images/figure-11.png)
+
+**Figure 12** — Wall shear stress on blade — viscous stress distribution on blade surfaces
+
+[![](images/figure-12.png)](images/figure-12.png)
+
+**Figure 13** — FSI: von Mises stress on blade — structural stress field from coupled FSI, maximum 15.2 MPa at blade root
+
+[![](images/figure-13.png)](images/figure-13.png)
+
+**Figure 14** — FSI: total deformation — blade deflection under aerodynamic load, maximum 0.032 mm at tip
+
+[![](images/figure-14.png)](images/figure-14.png)
+
+**Figure 15** — Convergence history — residuals for continuity, momentum, k, and omega all below 10⁻⁵
+
+[![](images/figure-15.png)](images/figure-15.png)
+
+**Figure 16** — Performance curve — flow rate vs. pressure rise at the optimal 30° installation angle
+
+[![](images/figure-16.png)](images/figure-16.png)
+
 
 ---
 
