@@ -18,9 +18,9 @@ This repository contains the full CFD and FSI analysis of a 60mm computer coolin
 2. [Report (PDF)](#2-report-pdf)
 3. [Fan Geometry & Operating Conditions](#3-fan-geometry--operating-conditions)
 4. [Methodology](#4-methodology)
-   - [4.1 Phase 1: NACA 0012 Validation](#41-phase-1-naca-0012-validation)
-   - [4.2 Phase 2: 3D Fan Simulation](#42-phase-2-3d-fan-simulation)
-   - [4.3 Phase 3: FSI Coupling](#43-phase-3-fsi-coupling)
+ - [4.1 Phase 1: NACA 0012 Validation](#41-phase-1-naca-0012-validation)
+ - [4.2 Phase 2: 3D Fan Simulation](#42-phase-2-3d-fan-simulation)
+ - [4.3 Phase 3: FSI Coupling](#43-phase-3-fsi-coupling)
 5. [Key Results](#5-key-results)
 6. [Figure Reference & Captions](#6-figure-reference--captions)
 7. [How to Reproduce](#7-how-to-reproduce)
@@ -58,7 +58,7 @@ The original submitted copy is preserved at the repository root as `6-Numerical 
 | Blade profile | NACA 0012 |
 | Housing internal diameter | 64 mm |
 | Rotational speed | 1,500 RPM |
-| Target volumetric flow rate | $6 \times 10^{-3}\,\text{m}^3/\text{s}$ |
+| Target volumetric flow rate | 6 x 10⁻³m³/s |
 | Target pressure head | 10 Pa |
 | Blade material | ABS plastic (yield strength 40 MPa) |
 
@@ -68,23 +68,23 @@ The original submitted copy is preserved at the repository root as `6-Numerical 
 
 ### 4.1 Phase 1: NACA 0012 Validation
 
-The standard $k-\omega$ SST turbulence model is validated against experimental wind-tunnel data for the NACA 0012 airfoil across a range of angles of attack. The lift coefficient predictions agree with experiment within **3.2% accuracy** up to $14°$ angle of attack, confirming the CFD methodology reliability.
+The standard k-omega SST turbulence model is validated against experimental wind-tunnel data for the NACA 0012 airfoil across a range of angles of attack. The lift coefficient predictions agree with experiment within **3.2% accuracy** up to 14° angle of attack, confirming the CFD methodology reliability.
 
 ### 4.2 Phase 2: 3D Fan Simulation
 
-Steady-state simulation of the complete fan assembly using ANSYS Fluent with the $k-\omega$ SST turbulence model. The rotating reference frame captures the rotor-stator interaction.
+Steady-state simulation of the complete fan assembly using ANSYS Fluent with the k-omega SST turbulence model. The rotating reference frame captures the rotor-stator interaction.
 
 **Mesh:**
 - Unstructured tetrahedral mesh
-- Quality metrics: skewness $< 0.1$, orthogonal quality $> 0.95$
+- Quality metrics: skewness < 0.1, orthogonal quality > 0.95
 
 **Boundary Conditions:**
 | Boundary | Type | Value |
 |---|---|---|
-| Inlet | Velocity inlet | $V = 5\,\text{m/s}$ |
-| Outlet | Pressure outlet | $p_g = 0\,\text{Pa}$ |
+| Inlet | Velocity inlet | V = 5m/s |
+| Outlet | Pressure outlet | pg = 0Pa |
 | Hub / casing | No-slip wall | Standard wall functions |
-| Rotating zone | Moving reference frame | $\omega = 1{,}500\,\text{rpm}$ |
+| Rotating zone | Moving reference frame | omega = 1,500rpm |
 
 ### 4.3 Phase 3: FSI Coupling
 
@@ -95,7 +95,7 @@ ANSYS System Coupling links the Fluent pressure field to the Mechanical structur
 |---|---|
 | Maximum von Mises stress | 15.2 MPa (at blade root) |
 | Safety factor against ABS yield (40 MPa) | 2.6 |
-| Maximum blade tip deflection | 0.032 mm ($< 0.3\%$ of chord) |
+| Maximum blade tip deflection | 0.032 mm (< 0.3\% of chord) |
 
 ---
 
@@ -103,13 +103,13 @@ ANSYS System Coupling links the Fluent pressure field to the Mechanical structur
 
 | Metric | Value |
 |---|---|
-| Optimal blade installation angle | $30°$ |
-| Volumetric flow rate achieved | $6.34 \times 10^{-3}\,\text{m}^3/\text{s}$ (105.7% of target) |
+| Optimal blade installation angle | 30° |
+| Volumetric flow rate achieved | 6.34 x 10⁻³m³/s (105.7% of target) |
 | Pressure rise achieved | 10.8 Pa (108% of target) |
 | NACA 0012 lift coefficient validation | within 3.2% of experiment |
 | Maximum von Mises stress (FSI) | 15.2 MPa |
 | Safety factor | 2.6 |
-| Validation vs experiment | within $\pm 3\%$ |
+| Validation vs experiment | within +/- 3\% |
 
 ---
 
@@ -129,11 +129,11 @@ All 16 figures are extracted from the original report and renamed sequentially.
 | 8 | <a href="images/figure-08.png"><img src="images/figure-08.png" width="120" alt="Figure 8"></a> | Mesh quality metrics — skewness and orthogonal quality histograms |
 | 9 | <a href="images/figure-09.png"><img src="images/figure-09.png" width="120" alt="Figure 9"></a> | Velocity magnitude contour at mid-span — showing the throughflow velocity distribution and tip leakage |
 | 10 | <a href="images/figure-10.png"><img src="images/figure-10.png" width="120" alt="Figure 10"></a> | Static pressure contour — pressure field around the fan assembly |
-| 11 | <a href="images/figure-11.png"><img src="images/figure-11.png" width="120" alt="Figure 11"></a> | Turbulent kinetic energy contour — $k$ distribution showing regions of high turbulence near blade tips and housing |
+| 11 | <a href="images/figure-11.png"><img src="images/figure-11.png" width="120" alt="Figure 11"></a> | Turbulent kinetic energy contour — k distribution showing regions of high turbulence near blade tips and housing |
 | 12 | <a href="images/figure-12.png"><img src="images/figure-12.png" width="120" alt="Figure 12"></a> | Wall shear stress on blade — viscous stress distribution on blade surfaces |
 | 13 | <a href="images/figure-13.png"><img src="images/figure-13.png" width="120" alt="Figure 13"></a> | FSI: von Mises stress on blade — structural stress field from coupled FSI, maximum 15.2 MPa at blade root |
 | 14 | <a href="images/figure-14.png"><img src="images/figure-14.png" width="120" alt="Figure 14"></a> | FSI: total deformation — blade deflection under aerodynamic load, maximum 0.032 mm at tip |
-| 15 | <a href="images/figure-15.png"><img src="images/figure-15.png" width="120" alt="Figure 15"></a> | Convergence history — residuals for continuity, momentum, $k$, and $\omega$ all below $10^{-5}$ |
+| 15 | <a href="images/figure-15.png"><img src="images/figure-15.png" width="120" alt="Figure 15"></a> | Convergence history — residuals for continuity, momentum, k, and omega all below 10⁻⁵ |
 | 16 | <a href="images/figure-16.png"><img src="images/figure-16.png" width="120" alt="Figure 16"></a> | Performance curve — flow rate vs. pressure rise at the optimal 30° installation angle |
 
 ---
@@ -144,21 +144,21 @@ The repository does not include the ANSYS Workbench project files (`.wbpj`, `.ag
 because they are several gigabytes in size. To reproduce this work:
 
 1. **Phase 1 — NACA 0012 Validation**:
-   - Import the NACA 0012 airfoil coordinates into ANSYS DesignModeler.
-   - Generate a 2D mesh with $y^+ \approx 1$ boundary layer resolution.
-   - Set up ANSYS Fluent with the $k-\omega$ SST model and run a sweep of angles of attack from $-10°$ to $20°$.
-   - Compare $C_L$ vs. $\alpha$ with experimental data.
+ - Import the NACA 0012 airfoil coordinates into ANSYS DesignModeler.
+ - Generate a 2D mesh with y⁺ ~= 1 boundary layer resolution.
+ - Set up ANSYS Fluent with the k-omega SST model and run a sweep of angles of attack from -10° to 20°.
+ - Compare CL vs. alpha with experimental data.
 
 2. **Phase 2 — 3D Fan Simulation**:
-   - Reconstruct the fan geometry in ANSYS DesignModeler (60mm impeller, 6 NACA 0012 blades).
-   - Generate the tetrahedral mesh with inflation layers.
-   - Set up the rotating reference frame at 1,500 RPM.
-   - Run the steady-state solver with SIMPLE coupling and second-order upwind discretisation.
+ - Reconstruct the fan geometry in ANSYS DesignModeler (60mm impeller, 6 NACA 0012 blades).
+ - Generate the tetrahedral mesh with inflation layers.
+ - Set up the rotating reference frame at 1,500 RPM.
+ - Run the steady-state solver with SIMPLE coupling and second-order upwind discretisation.
 
 3. **Phase 3 — FSI Coupling**:
-   - Export the Fluent pressure field as a load.
-   - Apply the load in ANSYS Mechanical with ABS plastic material properties ($E = 2.0\,\text{GPa}$, $\nu = 0.35$).
-   - Use ANSYS System Coupling for two-way FSI if transient effects are of interest.
+ - Export the Fluent pressure field as a load.
+ - Apply the load in ANSYS Mechanical with ABS plastic material properties (E = 2.0GPa, nu = 0.35).
+ - Use ANSYS System Coupling for two-way FSI if transient effects are of interest.
 
 The PDF report in `reports/6-Numerical-Modelling.pdf` contains every step, screenshot, and the final contour plots.
 
@@ -170,15 +170,15 @@ Two figures from this project were also reconstructed as interactive 3D Gaussian
 
 ### 8.1 Fan rotor assembly (from figure 2)
 
-<iframe src="https://opprah-maker.github.io/splat/?s=fan_02" width="100%" height="500" style="border:1px solid #ddd;border-radius:8px;" loading="lazy" title="3D Gaussian Splat: CFD fan rotor assembly"></iframe>
+[![Open interactive 3D Gaussian splat of images/figure-02.png](https://raw.githubusercontent.com/opprah-maker/CFD-Axial-Flow-Fan-Analysis/main/images/figure-02.png)](https://opprah-maker.github.io/splat/?s=fan_02 '3D Gaussian Splat viewer')
 
-[View in full screen](https://opprah-maker.github.io/splat/?s=fan_02)
+[**View in 3D (drag to orbit, scroll to zoom) &#x2192;**](https://opprah-maker.github.io/splat/?s=fan_02) hosted on the portfolio site
 
 ### 8.2 Fan blade wireframe (from figure 1)
 
-<iframe src="https://opprah-maker.github.io/splat/?s=fan_01" width="100%" height="500" style="border:1px solid #ddd;border-radius:8px;" loading="lazy" title="3D Gaussian Splat: CFD fan wireframe"></iframe>
+[![Open interactive 3D Gaussian splat of images/figure-01.png](https://raw.githubusercontent.com/opprah-maker/CFD-Axial-Flow-Fan-Analysis/main/images/figure-01.png)](https://opprah-maker.github.io/splat/?s=fan_01 '3D Gaussian Splat viewer')
 
-[View in full screen](https://opprah-maker.github.io/splat/?s=fan_01)
+[**View in 3D (drag to orbit, scroll to zoom) &#x2192;**](https://opprah-maker.github.io/splat/?s=fan_01) hosted on the portfolio site
 
 ### 8.3 Generation notes
 
