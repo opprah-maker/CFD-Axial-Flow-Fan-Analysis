@@ -1,6 +1,6 @@
 # CFD Analysis of a Computer Cooling Axial-Flow Fan: NACA 0012 Validation, 3D Simulation, and FSI
 
-> **Comprehensive CFD and FSI Analysis** — Module: Mechanical Engineering Modelling & Simulation
+> **Comprehensive CFD and FSI Analysis**  :  Module: Mechanical Engineering Modelling & Simulation
 > Module Leader: Jhon Paul Roque MRAeS
 
 This repository contains the full CFD and FSI analysis of a 60mm computer cooling axial-flow fan with 6 NACA 0012 profile blades. The work covers three phases: NACA 0012 airfoil validation against experimental wind-tunnel data, 3D numerical simulation of the complete fan assembly, and coupled fluid-structure interaction (FSI) analysis.
@@ -117,67 +117,67 @@ ANSYS System Coupling links the Fluent pressure field to the Mechanical structur
 
 All 16 figures are extracted from the original report and renamed sequentially.
 
-**Figure 1** — Velocity streamlines from ANSYS Fluent — 3D streamline visualisation showing flow through the fan assembly, colour-coded by velocity magnitude (0–9 m/s), showing tip vortices and wake structure
+**Figure 1**  :  Velocity streamlines from ANSYS Fluent  :  3D streamline visualisation showing flow through the fan assembly, colour-coded by velocity magnitude (0-9 m/s), showing tip vortices and wake structure
 
 [![](images/figure-01.png)](images/figure-01.png)
 
-**Figure 2** — Pressure contours on blade surfaces — blade surface pressure distribution from ANSYS CFD-Post, pressure scale blue (−400 Pa) to red (+600 Pa) relative to ambient, spanwise and chordwise variation
+**Figure 2**  :  Pressure contours on blade surfaces  :  blade surface pressure distribution from ANSYS CFD-Post, pressure scale blue (−400 Pa) to red (+600 Pa) relative to ambient, spanwise and chordwise variation
 
 [![](images/figure-02.png)](images/figure-02.png)
 
-**Figure 3** — NACA 0012 airfoil mesh — 2D computational mesh around the validation airfoil with boundary layer resolution
+**Figure 3**  :  NACA 0012 airfoil mesh  :  2D computational mesh around the validation airfoil with boundary layer resolution
 
 [![](images/figure-03.png)](images/figure-03.png)
 
-**Figure 4** — NACA 0012 lift coefficient vs. angle of attack — CFD vs. experimental wind-tunnel data, showing agreement within 3.2% up to 14° AoA
+**Figure 4**  :  NACA 0012 lift coefficient vs. angle of attack  :  CFD vs. experimental wind-tunnel data, showing agreement within 3.2% up to 14° AoA
 
 [![](images/figure-04.png)](images/figure-04.png)
 
-**Figure 5** — Fan geometry in ANSYS DesignModeler — 3D model of the 60mm impeller with 6 NACA 0012 blades and cylindrical housing
+**Figure 5**  :  Fan geometry in ANSYS DesignModeler  :  3D model of the 60mm impeller with 6 NACA 0012 blades and cylindrical housing
 
 [![](images/figure-05.png)](images/figure-05.png)
 
-**Figure 6** — Computational domain — fluid volume around the fan with inlet, outlet, and housing walls
+**Figure 6**  :  Computational domain  :  fluid volume around the fan with inlet, outlet, and housing walls
 
 [![](images/figure-06.png)](images/figure-06.png)
 
-**Figure 7** — Tetrahedral mesh — global view of the unstructured mesh with inflation layers on blade surfaces
+**Figure 7**  :  Tetrahedral mesh  :  global view of the unstructured mesh with inflation layers on blade surfaces
 
 [![](images/figure-07.png)](images/figure-07.png)
 
-**Figure 8** — Mesh quality metrics — skewness and orthogonal quality histograms
+**Figure 8**  :  Mesh quality metrics  :  skewness and orthogonal quality histograms
 
 [![](images/figure-08.png)](images/figure-08.png)
 
-**Figure 9** — Velocity magnitude contour at mid-span — showing the throughflow velocity distribution and tip leakage
+**Figure 9**  :  Velocity magnitude contour at mid-span  :  showing the throughflow velocity distribution and tip leakage
 
 [![](images/figure-09.png)](images/figure-09.png)
 
-**Figure 10** — Static pressure contour — pressure field around the fan assembly
+**Figure 10**  :  Static pressure contour  :  pressure field around the fan assembly
 
 [![](images/figure-10.png)](images/figure-10.png)
 
-**Figure 11** — Turbulent kinetic energy contour — k distribution showing regions of high turbulence near blade tips and housing
+**Figure 11**  :  Turbulent kinetic energy contour  :  k distribution showing regions of high turbulence near blade tips and housing
 
 [![](images/figure-11.png)](images/figure-11.png)
 
-**Figure 12** — Wall shear stress on blade — viscous stress distribution on blade surfaces
+**Figure 12**  :  Wall shear stress on blade  :  viscous stress distribution on blade surfaces
 
 [![](images/figure-12.png)](images/figure-12.png)
 
-**Figure 13** — FSI: von Mises stress on blade — structural stress field from coupled FSI, maximum 15.2 MPa at blade root
+**Figure 13**  :  FSI: von Mises stress on blade  :  structural stress field from coupled FSI, maximum 15.2 MPa at blade root
 
 [![](images/figure-13.png)](images/figure-13.png)
 
-**Figure 14** — FSI: total deformation — blade deflection under aerodynamic load, maximum 0.032 mm at tip
+**Figure 14**  :  FSI: total deformation  :  blade deflection under aerodynamic load, maximum 0.032 mm at tip
 
 [![](images/figure-14.png)](images/figure-14.png)
 
-**Figure 15** — Convergence history — residuals for continuity, momentum, k, and omega all below 10⁻⁵
+**Figure 15**  :  Convergence history  :  residuals for continuity, momentum, k, and omega all below 10⁻⁵
 
 [![](images/figure-15.png)](images/figure-15.png)
 
-**Figure 16** — Performance curve — flow rate vs. pressure rise at the optimal 30° installation angle
+**Figure 16**  :  Performance curve  :  flow rate vs. pressure rise at the optimal 30° installation angle
 
 [![](images/figure-16.png)](images/figure-16.png)
 
@@ -189,19 +189,19 @@ All 16 figures are extracted from the original report and renamed sequentially.
 The repository does not include the ANSYS Workbench project files (`.wbpj`, `.agdb`, `.cas.h5`)
 because they are several gigabytes in size. To reproduce this work:
 
-1. **Phase 1 — NACA 0012 Validation**:
+1. **Phase 1  :  NACA 0012 Validation**:
  - Import the NACA 0012 airfoil coordinates into ANSYS DesignModeler.
  - Generate a 2D mesh with y⁺ ~= 1 boundary layer resolution.
  - Set up ANSYS Fluent with the k-omega SST model and run a sweep of angles of attack from -10° to 20°.
  - Compare CL vs. alpha with experimental data.
 
-2. **Phase 2 — 3D Fan Simulation**:
+2. **Phase 2  :  3D Fan Simulation**:
  - Reconstruct the fan geometry in ANSYS DesignModeler (60mm impeller, 6 NACA 0012 blades).
  - Generate the tetrahedral mesh with inflation layers.
  - Set up the rotating reference frame at 1,500 RPM.
  - Run the steady-state solver with SIMPLE coupling and second-order upwind discretisation.
 
-3. **Phase 3 — FSI Coupling**:
+3. **Phase 3  :  FSI Coupling**:
  - Export the Fluent pressure field as a load.
  - Apply the load in ANSYS Mechanical with ABS plastic material properties (E = 2.0GPa, nu = 0.35).
  - Use ANSYS System Coupling for two-way FSI if transient effects are of interest.
@@ -274,14 +274,18 @@ The MATLAB scripts in this repository are post-processing utilities only; the CF
 
 It is worth distinguishing clearly between the tools that were used in a taught context (undergraduate modules) and the tools that were acquired through self-directed study after graduation.
 
-**Taught during the undergraduate programme (Brunel University, Aerospace Engineering):**
+**Taught during the undergraduate programme (Wrexham University, BEng Aeronautical and Mechanical Engineering, 2016 to 2020):**
 
-- ANSYS Fluent for steady-state RANS analysis of internal flows.
-- ANSYS Mechanical for static structural analysis of blade-like geometries.
-- ANSYS SpaceClaim and ANSYS Meshing for geometry clean-up and mesh generation.
-- MATLAB and Octave for post-processing of numerical data and for short numerical-methods assignments.
-- Theoretical aerodynamics (potential flow, boundary-layer theory, panel methods).
-- Technical report writing in British English.
+The numerical methods, aerodynamics, and report-writing skills that underpin this project were taught in the BEng programme. The exact combination of modules and the specific commercial software in use at the time are not separately itemised here, because the value of this section is in the boundary between the taught chapter and the self-taught chapter that follows, not in a module-by-module transcript.
+
+In broad terms, the taught chapter covered:
+
+- The engineering mathematics that supports the work: differential equations, numerical methods, and stability analysis.
+- The relevant engineering science for each project (aerodynamics, heat transfer, energy systems, or aircraft design, depending on the assignment).
+- MATLAB for numerical-modelling assignments, including vectorised array operations, plotting, and small optimisation problems.
+- Technical report writing in British English, including structure, figure presentation, and referencing.
+
+The remainder of the work in this repository (the choice of specific software, the design of the figures, the addition of 3D visualisations, the conversion of Excel data to web-friendly formats, and the way the report is published on GitHub) is the self-taught chapter below.
 
 **Self-taught after graduation, in the home laboratory:**
 
