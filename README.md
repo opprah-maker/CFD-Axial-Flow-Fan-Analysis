@@ -8,10 +8,10 @@
 
 This repository contains the full CFD and FSI analysis of a 60mm computer cooling axial-flow fan with 6 NACA 0012 profile blades. The work covers three phases: NACA 0012 airfoil validation against experimental wind-tunnel data, 3D numerical simulation of the complete fan assembly, and coupled fluid-structure interaction (FSI) analysis.
 
-[![ANSYS Fluent](https://img.shields.io/badge/ANSYS%20Fluent-CFD-FFB71Blogo=ansys&logoColor=black)]()
-[![ANSYS Mechanical](https://img.shields.io/badge/ANSYS%20Mechanical-FFB71Blogo=ansys&logoColor=black)]()
+[![ANSYS Fluent](https://img.shields.io/badge/ANSYS%20Fluent-CFD-FFB71B?logo=ansys&logoColor=black)]()
+[![ANSYS Mechanical](https://img.shields.io/badge/ANSYS%20Mechanical-FFB71B?logo=ansys&logoColor=black)]()
 [![CFD](https://img.shields.io/badge/Method-k--%CF%89%20SST-blue)]()
-[![Report PDF](https://img.shields.io/badge/Report-PDF-redlogo=adobe-acrobat-reader&logoColor=white)]()
+[![Report PDF](https://img.shields.io/badge/Report-PDF-red?logo=adobe-acrobat-reader&logoColor=white)]()
 
 ---
 
