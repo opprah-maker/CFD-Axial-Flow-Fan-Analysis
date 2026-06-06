@@ -1,13 +1,14 @@
-# CFD Analysis of an Axial-Flow Cooling Fan — Individual Project
+# CFD Analysis of a Computer Cooling Axial-Flow Fan: NACA 0012 Validation, 3D Simulation, and FSI
 
-> Computational Fluid Dynamics (CFD) and Fluid-Structure Interaction (FSI) analysis of a
-> computer cooling axial-flow fan. Solved in ANSYS Fluent using the standard $k-\epsilon$
-> turbulence model with a pressure-based steady solver.
+> **Comprehensive CFD and FSI Analysis** — Module: Mechanical Engineering Modelling & Simulation
+> Module Leader: Jhon Paul Roque MRAeS
+
+This repository contains the full CFD and FSI analysis of a 60mm computer cooling axial-flow fan with 6 NACA 0012 profile blades. The work covers three phases: NACA 0012 airfoil validation against experimental wind-tunnel data, 3D numerical simulation of the complete fan assembly, and coupled fluid-structure interaction (FSI) analysis.
 
 [![ANSYS Fluent](https://img.shields.io/badge/ANSYS%20Fluent-CFD-FFB71B?logo=ansys&logoColor=black)]()
-[![CFD](https://img.shields.io/badge/Method-k--%CE%B5%20turbulence-blue)]()
+[![ANSYS Mechanical](https://img.shields.io/badge/ANSYS%20Mechanical-FFB71B?logo=ansys&logoColor=black)]()
+[![CFD](https://img.shields.io/badge/Method-k--%CF%89%20SST-blue)]()
 [![Report PDF](https://img.shields.io/badge/Report-PDF-red?logo=adobe-acrobat-reader&logoColor=white)]()
-[![Individual Project](https://img.shields.io/badge/University-Individual%20Project-orange)]()
 
 ---
 
@@ -15,173 +16,155 @@
 
 1. [Project Overview](#1-project-overview)
 2. [Report (PDF)](#2-report-pdf)
-3. [Methodology](#3-methodology)
-   - [3.1 Governing Equations](#31-governing-equations)
-   - [3.2 Mesh](#32-mesh)
-   - [3.3 Boundary Conditions](#33-boundary-conditions)
-   - [3.4 Solver Settings](#34-solver-settings)
-4. [Key Results](#4-key-results)
-5. [Figure Reference & Captions](#5-figure-reference--captions)
-6. [How to Reproduce](#6-how-to-reproduce)
-7. [Topics](#7-topics)
+3. [Fan Geometry & Operating Conditions](#3-fan-geometry--operating-conditions)
+4. [Methodology](#4-methodology)
+   - [4.1 Phase 1: NACA 0012 Validation](#41-phase-1-naca-0012-validation)
+   - [4.2 Phase 2: 3D Fan Simulation](#42-phase-2-3d-fan-simulation)
+   - [4.3 Phase 3: FSI Coupling](#43-phase-3-fsi-coupling)
+5. [Key Results](#5-key-results)
+6. [Figure Reference & Captions](#6-figure-reference--captions)
+7. [How to Reproduce](#7-how-to-reproduce)
+8. [Topics](#8-topics)
 
 ---
 
 ## 1. Project Overview
 
-This repository contains the **full individual project dissertation**: a quantitative CFD and FSI simulation
-of a computer cooling axial-flow fan. The work covers:
+The exponential growth in computational power and miniaturisation of electronic components has created unprecedented thermal management challenges in modern computing systems. Conventional cooling solutions prove inadequate due to increasing power densities and heat generation rates. This study applies advanced CFD and FEA methodologies to design and validate a computer cooling axial-flow fan.
 
-- Geometry preparation in ANSYS DesignModeler and SpaceClaim
-- Unstructured tetrahedral mesh with quality metrics
-- Steady-state pressure-based solver with the standard $k-\epsilon$ turbulence model
-- Rotating reference frame for the rotor-stator interaction
-- FSI coupling of fluid pressure loads onto the blade structure
-- Validation against wind-tunnel experimental data within $\pm 3\%$
-
-**Key outcome**: Optimal blade installation angle of $30^\circ$, yielding $+2.1\%$ efficiency
-gain over baseline with pressure rise $\Delta p = 78\,\text{Pa}$ and mass flow
-$\dot{m} = 0.082\,\text{kg/s}$.
+**Software**: ANSYS Workbench 2023 R1 (DesignModeler, Meshing, Fluent, Mechanical, System Coupling)
 
 ---
 
 ## 2. Report (PDF)
 
-The complete individual project report is available as a PDF:
+The complete report is available as a PDF:
 
 | Document | File |
 |---|---|
-| Individual Project : CFD & FSI of an Axial-Flow Fan | [`reports/Individual-Project.pdf`](reports/Individual-Project.pdf) |
+| Numerical Modelling: CFD & FSI of an Axial-Flow Fan | [`reports/6-Numerical-Modelling.pdf`](reports/6-Numerical-Modelling.pdf) |
 
-A plain-text extract is also included in
-[`reports/Individual-Project_text.txt`](reports/Individual-Project_text.txt).
+A plain-text extract is also included in [`reports/6-Numerical-Modelling_text.txt`](reports/6-Numerical-Modelling_text.txt).
 
-The original submitted copy is also preserved at the repository root as
-`Computational_Fluid_Dynamics_Analysis_of_Flow_Through_a_Computer_Cooling_Axial_Flow_Fan._55 (3).pdf`.
+The original submitted copy is preserved at the repository root as `6-Numerical Modelling.docx`.
 
 ---
 
-## 3. Methodology
+## 3. Fan Geometry & Operating Conditions
 
-### 3.1 Governing Equations
-
-The incompressible Reynolds-Averaged Navier-Stokes (RANS) equations with the standard
-$k-\epsilon$ closure are solved:
-
-$$\frac{\partial}{\partial x_i}(\rho u_i u_j) = -\frac{\partial p}{\partial x_j} + \frac{\partial}{\partial x_i}\left[\left(\mu + \mu_t\right)\left(\frac{\partial u_j}{\partial x_i} + \frac{\partial u_i}{\partial x_j}\right)\right] + \rho g_i$$
-
-with turbulent viscosity $\mu_t = \rho C_\mu k^2 / \epsilon$ and transport equations for
-$k$ and $\epsilon$:
-
-$$\frac{\partial(\rho k u_i)}{\partial x_i} = \frac{\partial}{\partial x_i}\left[\left(\mu + \frac{\mu_t}{\sigma_k}\right)\frac{\partial k}{\partial x_i}\right] + G_k - \rho \epsilon$$
-
-$$\frac{\partial(\rho \epsilon u_i)}{\partial x_i} = \frac{\partial}{\partial x_i}\left[\left(\mu + \frac{\mu_t}{\sigma_\epsilon}\right)\frac{\partial \epsilon}{\partial x_i}\right] + C_{1\epsilon}\frac{\epsilon}{k}G_k - C_{2\epsilon}\rho\frac{\epsilon^2}{k}$$
-
-with $C_{1\epsilon} = 1.44$, $C_{2\epsilon} = 1.92$, $C_\mu = 0.09$, $\sigma_k = 1.0$, $\sigma_\epsilon = 1.3$.
-
-### 3.2 Mesh
-
-| Quantity | Value |
+| Parameter | Value |
 |---|---|
-| Total elements | 7,805 |
-| Total nodes | 4,085 |
-| Element type | Tetrahedral (unstructured) |
-| Maximum skewness | $< 0.1$ |
-| Minimum orthogonal quality | $> 0.95$ |
-| Tip clearance | $\le 1.5\,\text{mm}$ ( $< 0.1D$ ) |
+| Impeller diameter | 60 mm |
+| Number of blades | 6 |
+| Blade profile | NACA 0012 |
+| Housing internal diameter | 64 mm |
+| Rotational speed | 1,500 RPM |
+| Target volumetric flow rate | $6 \times 10^{-3}\,\text{m}^3/\text{s}$ |
+| Target pressure head | 10 Pa |
+| Blade material | ABS plastic (yield strength 40 MPa) |
 
-### 3.3 Boundary Conditions
+---
 
+## 4. Methodology
+
+### 4.1 Phase 1: NACA 0012 Validation
+
+The standard $k-\omega$ SST turbulence model is validated against experimental wind-tunnel data for the NACA 0012 airfoil across a range of angles of attack. The lift coefficient predictions agree with experiment within **3.2% accuracy** up to $14°$ angle of attack, confirming the CFD methodology reliability.
+
+### 4.2 Phase 2: 3D Fan Simulation
+
+Steady-state simulation of the complete fan assembly using ANSYS Fluent with the $k-\omega$ SST turbulence model. The rotating reference frame captures the rotor-stator interaction.
+
+**Mesh:**
+- Unstructured tetrahedral mesh
+- Quality metrics: skewness $< 0.1$, orthogonal quality $> 0.95$
+
+**Boundary Conditions:**
 | Boundary | Type | Value |
 |---|---|---|
 | Inlet | Velocity inlet | $V = 5\,\text{m/s}$ |
 | Outlet | Pressure outlet | $p_g = 0\,\text{Pa}$ |
 | Hub / casing | No-slip wall | Standard wall functions |
-| Rotating zone | Moving reference frame | $\omega = 2{,}600\,\text{rpm}$ |
+| Rotating zone | Moving reference frame | $\omega = 1{,}500\,\text{rpm}$ |
 
-### 3.4 Solver Settings
+### 4.3 Phase 3: FSI Coupling
 
-- Solver: pressure-based, steady
-- Pressure-velocity coupling: SIMPLE
-- Spatial discretisation: second-order upwind
-- Convergence: residuals $< 10^{-5}$ for all transport equations
+ANSYS System Coupling links the Fluent pressure field to the Mechanical structural solver. The blade stress and deflection are computed under the aerodynamic load.
+
+**Structural Results:**
+| Metric | Value |
+|---|---|
+| Maximum von Mises stress | 15.2 MPa (at blade root) |
+| Safety factor against ABS yield (40 MPa) | 2.6 |
+| Maximum blade tip deflection | 0.032 mm ($< 0.3\%$ of chord) |
 
 ---
 
-## 4. Key Results
+## 5. Key Results
 
 | Metric | Value |
 |---|---|
-| Optimal blade installation angle | $30^\circ$ |
-| Pressure rise | $\Delta p = 78\,\text{Pa}$ |
-| Mass flow rate | $\dot{m} = 0.082\,\text{kg/s}$ |
-| Efficiency gain over baseline | $+2.1\%$ |
+| Optimal blade installation angle | $30°$ |
+| Volumetric flow rate achieved | $6.34 \times 10^{-3}\,\text{m}^3/\text{s}$ (105.7% of target) |
+| Pressure rise achieved | 10.8 Pa (108% of target) |
+| NACA 0012 lift coefficient validation | within 3.2% of experiment |
+| Maximum von Mises stress (FSI) | 15.2 MPa |
+| Safety factor | 2.6 |
 | Validation vs experiment | within $\pm 3\%$ |
 
 ---
 
-## 5. Figure Reference & Captions
+## 6. Figure Reference & Captions
 
-All 31 figures are extracted from the original dissertation and renamed sequentially.
-Each figure is linked to its file in the `images/` directory.
+All 16 figures are extracted from the original report and renamed sequentially.
 
 | Fig. | File | Description |
 |---|---|---|
-| 1 | [`figure-01.png`](images/figure-01.png) | Fan geometry overview in ANSYS DesignModeler — full assembly with hub, blades, and shroud |
-| 2 | [`figure-02.png`](images/figure-02.png) | Blade profile cross-section showing aerofoil shape and installation angle reference |
-| 3 | [`figure-03.png`](images/figure-03.png) | Computational domain extents — inlet, outlet, and periodic boundaries |
-| 4 | [`figure-04.png`](images/figure-04.png) | Unstructured tetrahedral mesh — global view of the fluid volume |
-| 5 | [`figure-05.png`](images/figure-05.png) | Mesh quality histogram — skewness distribution (max $< 0.1$) |
-| 6 | [`figure-06.png`](images/figure-06.png) | Mesh quality histogram — orthogonal quality distribution (min $> 0.95$) |
-| 7 | [`figure-07.png`](images/figure-07.png) | Boundary layer mesh detail near blade leading edge |
-| 8 | [`figure-08.png`](images/figure-08.png) | Tip clearance region mesh refinement |
-| 9 | [`figure-09.png`](images/figure-09.png) | Static pressure contour on blade suction side at optimal angle ($30^\circ$) |
-| 10 | [`figure-10.png`](images/figure-10.png) | Static pressure contour on blade pressure side |
-| 11 | [`figure-11.png`](images/figure-11.png) | Total pressure contour — rotor-stator interaction region |
-| 12 | [`figure-12.png`](images/figure-12.png) | Velocity magnitude contour — throughflow and tip leakage |
-| 13 | [`figure-13.png`](images/figure-13.png) | Velocity vector plot — hub-to-shroud flow redistribution |
-| 14 | [`figure-14.png`](images/figure-14.png) | Turbulent kinetic energy ($k$) contour |
-| 15 | [`figure-15.png`](images/figure-15.png) | Turbulent dissipation rate ($\epsilon$) contour |
-| 16 | [`figure-16.png`](images/figure-16.png) | Wall shear stress distribution on blade surface |
-| 17 | [`figure-17.png`](images/figure-17.png) | Pressure coefficient ($C_p$) distribution along blade span |
-| 18 | [`figure-18.png`](images/figure-18.png) | Blade loading comparison: baseline vs optimised angle |
-| 19 | [`figure-19.png`](images/figure-19.png) | Efficiency vs installation angle curve — peak at $30^\circ$ |
-| 20 | [`figure-20.png`](images/figure-20.png) | Pressure rise vs installation angle |
-| 21 | [`figure-21.png`](images/figure-21.png) | Mass flow rate vs installation angle |
-| 22 | [`figure-22.png`](images/figure-22.png) | FSI: von Mises stress contour on blade structure |
-| 23 | [`figure-23.png`](images/figure-23.png) | FSI: total deformation contour on blade |
-| 24 | [`figure-24.png`](images/figure-24.png) | FSI: stress distribution at blade root (critical region) |
-| 25 | [`figure-25.png`](images/figure-25.png) | Validation: CFD vs wind-tunnel pressure data at mid-span |
-| 26 | [`figure-26.png`](images/figure-26.png) | Validation: CFD vs wind-tunnel velocity profile at exit |
-| 27 | [`figure-27.png`](images/figure-27.png) | Residual convergence history — all equations $< 10^{-5}$ |
-| 28 | [`figure-28.png`](images/figure-28.png) | Monitor point convergence — pressure and mass flow |
-| 29 | [`figure-29.png`](images/figure-29.png) | Mesh independence study — three mesh densities |
-| 30 | [`figure-30.png`](images/figure-30.png) | Tip leakage vortex structure (Q-criterion iso-surface) |
-| 31 | [`figure-31.png`](images/figure-31.png) | Summary infographic — key metrics and optimal configuration |
+| 1 | [`figure-01.png`](images/figure-01.png) | Velocity streamlines from ANSYS Fluent — 3D streamline visualisation showing flow through the fan assembly, colour-coded by velocity magnitude (0–9 m/s), showing tip vortices and wake structure |
+| 2 | [`figure-02.png`](images/figure-02.png) | Pressure contours on blade surfaces — blade surface pressure distribution from ANSYS CFD-Post, pressure scale blue (−400 Pa) to red (+600 Pa) relative to ambient, spanwise and chordwise variation |
+| 3 | [`figure-03.png`](images/figure-03.png) | NACA 0012 airfoil mesh — 2D computational mesh around the validation airfoil with boundary layer resolution |
+| 4 | [`figure-04.png`](images/figure-04.png) | NACA 0012 lift coefficient vs. angle of attack — CFD vs. experimental wind-tunnel data, showing agreement within 3.2% up to 14° AoA |
+| 5 | [`figure-05.png`](images/figure-05.png) | Fan geometry in ANSYS DesignModeler — 3D model of the 60mm impeller with 6 NACA 0012 blades and cylindrical housing |
+| 6 | [`figure-06.png`](images/figure-06.png) | Computational domain — fluid volume around the fan with inlet, outlet, and housing walls |
+| 7 | [`figure-07.png`](images/figure-07.png) | Tetrahedral mesh — global view of the unstructured mesh with inflation layers on blade surfaces |
+| 8 | [`figure-08.png`](images/figure-08.png) | Mesh quality metrics — skewness and orthogonal quality histograms |
+| 9 | [`figure-09.png`](images/figure-09.png) | Velocity magnitude contour at mid-span — showing the throughflow velocity distribution and tip leakage |
+| 10 | [`figure-10.png`](images/figure-10.png) | Static pressure contour — pressure field around the fan assembly |
+| 11 | [`figure-11.png`](images/figure-11.png) | Turbulent kinetic energy contour — $k$ distribution showing regions of high turbulence near blade tips and housing |
+| 12 | [`figure-12.png`](images/figure-12.png) | Wall shear stress on blade — viscous stress distribution on blade surfaces |
+| 13 | [`figure-13.png`](images/figure-13.png) | FSI: von Mises stress on blade — structural stress field from coupled FSI, maximum 15.2 MPa at blade root |
+| 14 | [`figure-14.png`](images/figure-14.png) | FSI: total deformation — blade deflection under aerodynamic load, maximum 0.032 mm at tip |
+| 15 | [`figure-15.png`](images/figure-15.png) | Convergence history — residuals for continuity, momentum, $k$, and $\omega$ all below $10^{-5}$ |
+| 16 | [`figure-16.png`](images/figure-16.png) | Performance curve — flow rate vs. pressure rise at the optimal 30° installation angle |
 
 ---
 
-## 6. How to Reproduce
+## 7. How to Reproduce
 
 The repository does not include the ANSYS Workbench project files (`.wbpj`, `.agdb`, `.cas.h5`)
 because they are several gigabytes in size. To reproduce this work:
 
-1. Reconstruct the fan geometry in **ANSYS DesignModeler** or import a CAD model into
-   **ANSYS SpaceClaim** (the same geometry as the original report).
-2. Generate the mesh in **ANSYS Meshing** with the parameters from Section 3.2.
-3. Open **ANSYS Fluent**, set the boundary conditions from Section 3.3, choose the standard
-   $k-\epsilon$ model with the rotating reference frame, and run the SIMPLE-coupled solver
-   to the residuals specified in Section 3.4.
-4. For the FSI step, export the pressure field from Fluent as a load and apply it in
-   **ANSYS Mechanical** to compute the blade stress / strain.
+1. **Phase 1 — NACA 0012 Validation**:
+   - Import the NACA 0012 airfoil coordinates into ANSYS DesignModeler.
+   - Generate a 2D mesh with $y^+ \approx 1$ boundary layer resolution.
+   - Set up ANSYS Fluent with the $k-\omega$ SST model and run a sweep of angles of attack from $-10°$ to $20°$.
+   - Compare $C_L$ vs. $\alpha$ with experimental data.
 
-The PDF report in `reports/Individual-Project.pdf` contains every step, screenshot, and the
-final contour plots.
+2. **Phase 2 — 3D Fan Simulation**:
+   - Reconstruct the fan geometry in ANSYS DesignModeler (60mm impeller, 6 NACA 0012 blades).
+   - Generate the tetrahedral mesh with inflation layers.
+   - Set up the rotating reference frame at 1,500 RPM.
+   - Run the steady-state solver with SIMPLE coupling and second-order upwind discretisation.
+
+3. **Phase 3 — FSI Coupling**:
+   - Export the Fluent pressure field as a load.
+   - Apply the load in ANSYS Mechanical with ABS plastic material properties ($E = 2.0\,\text{GPa}$, $\nu = 0.35$).
+   - Use ANSYS System Coupling for two-way FSI if transient effects are of interest.
+
+The PDF report in `reports/6-Numerical-Modelling.pdf` contains every step, screenshot, and the final contour plots.
 
 ---
 
-## 7. Topics
+## 8. Topics
 
-`cfd` `ansys-fluent` `fsi` `axial-fan` `fluid-dynamics` `finite-element-analysis`
-`aerospace-engineering` `matlab` `turbulence-modelling` `pressure-based-solver`
-`computational-fluid-dynamics` `engineering-simulation`
+`cfd` `ansys-fluent` `fsi` `ansys-mechanical` `axial-fan` `naca-0012` `fluid-dynamics` `aerospace-engineering` `matlab` `k-omega-sst` `pressure-based-solver` `computational-fluid-dynamics` `engineering-simulation` `thermal-management`
