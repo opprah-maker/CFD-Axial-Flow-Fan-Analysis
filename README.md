@@ -238,6 +238,61 @@ The full 3D splat gallery is at <https://opprah-maker.github.io/#3d>.
 
 ---
 
+## 8. How I built this
+
+This section describes the sequence of operations that produced the analysis, the tools that were used at each stage, and the decisions that shaped the final report. The approach was iterative rather than linear: each step fed into the next, and several iterations of mesh refinement, boundary-condition tuning, and post-processing were required before the results converged.
+
+The work was performed in three broad phases:
+
+1. **Pre-processing and model setup.** The cooling fan geometry was imported into ANSYS Workbench 2023 R1 and prepared with ANSYS SpaceClaim. The fluid domain was extracted, the rotating reference frame was defined, and the mesh was generated in ANSYS Meshing with local refinement near the blade surfaces, hub, and tip. Boundary conditions were assigned: mass-flow inlet, pressure outlet, and a no-slip wall on the rotating blade surfaces.
+2. **Solver configuration and run.** ANSYS Fluent was used to solve the steady-state RANS equations with the k-omega SST turbulence model. Convergence was monitored through the residuals and the mass-flow imbalance at the inlet and outlet. Three mesh densities (Coarse, Fine, Very Fine) were evaluated to confirm grid independence.
+3. **Post-processing and validation.** Static pressure, total pressure, velocity magnitude, and turbulence intensity contours were extracted from the Fluent case and data files. The CFD results were coupled to a static structural analysis in ANSYS Mechanical to evaluate the von Mises stress and total deformation on the blade under the computed aerodynamic loading.
+
+The data, the figures, and the report PDF in this repository are the outputs of that workflow. The MATLAB scripts at the root of the repository are short post-processing utilities that were used to re-plot the Fluent-exported CSV files into the form used in the report; they were not part of the original solver workflow.
+
+## 9. Thought process
+
+The motivation for the project was the observation that computer cooling fans are typically selected by free-form empirical rules, even though their performance is governed by the same aerodynamic principles that apply to larger turbomachines. A blade-element analysis at the conceptual design stage, followed by a high-fidelity CFD validation, was a way to demonstrate that first-principles engineering could be applied to a small, everyday device.
+
+The decision to use the k-omega SST turbulence model rather than the standard k-epsilon model was taken because the SST formulation resolves the viscous sublayer more accurately and is therefore better suited to the boundary-layer-dominated flow around the blade surfaces. The decision to perform a one-way fluid-structure interaction (FSI) rather than a two-way coupled analysis was taken because the structural deflections were expected to be small (sub-millimetre) and the additional computational cost of a two-way coupling could not be justified in the project timeframe.
+
+The choice of operating point (a single mass-flow rate at ambient conditions) was a pragmatic simplification: a full performance map at multiple flow rates and rotational speeds would have been more comprehensive, but the assignment specification was a single-point analysis and the report was kept within that scope.
+
+## 10. Learning outcomes
+
+On completion of this project the following capabilities were demonstrated:
+
+- **CFD methodology.** Geometry clean-up in SpaceClaim, mesh generation with local refinement, boundary-condition selection, solver setup with the k-omega SST turbulence model, convergence monitoring, and grid-independence checking.
+- **CFD post-processing.** Extraction of pressure, velocity, and turbulence fields from a converged Fluent case; plotting of contours and XY-plots; export of numerical data to CSV for further analysis.
+- **FEA methodology.** Import of CFD-derived pressure loads into ANSYS Mechanical, application of constraints, solution of a static structural problem, and interpretation of the von Mises stress field.
+- **Engineering judgement.** Awareness of the limitations of a single-point steady-state RANS analysis, the assumptions behind the chosen turbulence model, and the simplifications inherent in a one-way FSI coupling.
+- **Technical writing.** Structuring of a multi-section engineering report, use of figures and tables to support the narrative, and consistent use of British English throughout.
+
+The MATLAB scripts in this repository are post-processing utilities only; the CFD and FEA work was carried out in ANSYS.
+
+## 11. Engineering tools: what was taught, what was self-taught
+
+It is worth distinguishing clearly between the tools that were used in a taught context (undergraduate modules) and the tools that were acquired through self-directed study after graduation.
+
+**Taught during the undergraduate programme (Brunel University, Aerospace Engineering):**
+
+- ANSYS Fluent for steady-state RANS analysis of internal flows.
+- ANSYS Mechanical for static structural analysis of blade-like geometries.
+- ANSYS SpaceClaim and ANSYS Meshing for geometry clean-up and mesh generation.
+- MATLAB and Octave for post-processing of numerical data and for short numerical-methods assignments.
+- Theoretical aerodynamics (potential flow, boundary-layer theory, panel methods).
+- Technical report writing in British English.
+
+**Self-taught after graduation, in the home laboratory:**
+
+- Python (NumPy, SciPy, Matplotlib, Pandas) for data analysis, plotting, and small utilities.
+- Git and GitHub for version control, public portfolio hosting, and CI-style deployment through GitHub Pages.
+- HTML, CSS, and vanilla JavaScript for the portfolio website (this page is part of that site).
+- Three-dimensional Gaussian splatting for the interactive 3D views embedded in the report; the model was reconstructed from 2D figure crops using TripoSR and the splat file is hosted alongside this repository.
+- Jupyter notebooks for exploratory numerical work, currently being adopted as the next iteration of the home-laboratory workflow.
+
+The line between the two lists is not always sharp: the MATLAB and ANSYS skills were taught, and the Python, Git, HTML/CSS, and 3D skills were self-taught. The work in this repository reflects that split: the engineering analysis is uni work, and the way it is presented on the web is the self-taught chapter.
+
 ## 9. Topics
 
 `cfd` `ansys-fluent` `fsi` `ansys-mechanical` `axial-fan` `naca-0012` `fluid-dynamics` `aerospace-engineering` `matlab` `k-omega-sst` `pressure-based-solver` `computational-fluid-dynamics` `engineering-simulation` `thermal-management`
