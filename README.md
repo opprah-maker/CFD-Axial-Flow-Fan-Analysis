@@ -24,7 +24,8 @@ This repository contains the full CFD and FSI analysis of a 60mm computer coolin
 5. [Key Results](#5-key-results)
 6. [Figure Reference & Captions](#6-figure-reference--captions)
 7. [How to Reproduce](#7-how-to-reproduce)
-8. [Topics](#8-topics)
+8. [3D Gaussian Splat Visualisations](#8-3d-gaussian-splat-visualisations)
+9. [Topics](#9-topics)
 
 ---
 
@@ -163,6 +164,34 @@ The PDF report in `reports/6-Numerical-Modelling.pdf` contains every step, scree
 
 ---
 
-## 8. Topics
+## 8. 3D Gaussian Splat Visualisations
+
+Two figures from this project were also reconstructed as interactive 3D Gaussian splat previews using TripoSR (stabilityai/TripoSR, CPU inference) plus a custom mesh-to-splat converter. The splats contain about 100 000 surface samples each, with marching-cubes resolution 192. Drag to orbit, scroll to zoom.
+
+### 8.1 Fan rotor assembly (from figure 2)
+
+<iframe src="https://opprah-maker.github.io/splat/?s=fan_02" width="100%" height="500" style="border:1px solid #ddd;border-radius:8px;" loading="lazy" title="3D Gaussian Splat: CFD fan rotor assembly"></iframe>
+
+[View in full screen](https://opprah-maker.github.io/splat/?s=fan_02)
+
+### 8.2 Fan blade wireframe (from figure 1)
+
+<iframe src="https://opprah-maker.github.io/splat/?s=fan_01" width="100%" height="500" style="border:1px solid #ddd;border-radius:8px;" loading="lazy" title="3D Gaussian Splat: CFD fan wireframe"></iframe>
+
+[View in full screen](https://opprah-maker.github.io/splat/?s=fan_01)
+
+### 8.3 Generation notes
+
+- Model: TripoSR (stabilityai/TripoSR), CPU inference, about 20-30 s per image
+- Marching cubes: scikit-image (CUDA-only `torchmcubes` was patched out)
+- Surface sampling: trimesh, 100 000 points, face-normal quaternion encoding
+- Splat format: antimatter15/splat, 32 bytes per splat
+- Hardware: GTX 1050, 2 GB VRAM, no CUDA toolkit, CPU mode
+
+The full 3D splat gallery is at <https://opprah-maker.github.io/#3d>.
+
+---
+
+## 9. Topics
 
 `cfd` `ansys-fluent` `fsi` `ansys-mechanical` `axial-fan` `naca-0012` `fluid-dynamics` `aerospace-engineering` `matlab` `k-omega-sst` `pressure-based-solver` `computational-fluid-dynamics` `engineering-simulation` `thermal-management`
