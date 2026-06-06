@@ -30,7 +30,7 @@ The complete individual project report is available as a PDF:
 
 | Document | File |
 |---|---|
-| Individual Project &mdash; CFD & FSI of an Axial-Flow Fan | [`reports/Individual-Project.pdf`](reports/Individual-Project.pdf) |
+| Individual Project : CFD & FSI of an Axial-Flow Fan | [`reports/Individual-Project.pdf`](reports/Individual-Project.pdf) |
 
 A plain-text extract is also included in
 [`reports/Individual-Project_text.txt`](reports/Individual-Project_text.txt).
@@ -132,5 +132,5 @@ final contour plots.
 ## 7. Topics
 
 `cfd` `ansys-fluent` `fsi` `axial-fan` `fluid-dynamics` `finite-element-analysis`
-`aerospace-engineering` `matlab` `turbulence-modeling` `pressure-based-solver`
+`aerospace-engineering` `matlab` `turbulence-modelling` `pressure-based-solver`
 `computational-fluid-dynamics` `engineering-simulation`
