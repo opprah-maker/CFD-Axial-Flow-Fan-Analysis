@@ -1,4 +1,4 @@
-# CFD Analysis of an Axial-Flow Cooling Fan
+# CFD Analysis of an Axial-Flow Cooling Fan — Individual Project
 
 > Computational Fluid Dynamics (CFD) and Fluid-Structure Interaction (FSI) analysis of a
 > computer cooling axial-flow fan. Solved in ANSYS Fluent using the standard $k-\epsilon$
@@ -7,12 +7,29 @@
 [![ANSYS Fluent](https://img.shields.io/badge/ANSYS%20Fluent-CFD-FFB71B?logo=ansys&logoColor=black)]()
 [![CFD](https://img.shields.io/badge/Method-k--%CE%B5%20turbulence-blue)]()
 [![Report PDF](https://img.shields.io/badge/Report-PDF-red?logo=adobe-acrobat-reader&logoColor=white)]()
+[![Individual Project](https://img.shields.io/badge/University-Individual%20Project-orange)]()
+
+---
+
+## Table of Contents
+
+1. [Project Overview](#1-project-overview)
+2. [Report (PDF)](#2-report-pdf)
+3. [Methodology](#3-methodology)
+   - [3.1 Governing Equations](#31-governing-equations)
+   - [3.2 Mesh](#32-mesh)
+   - [3.3 Boundary Conditions](#33-boundary-conditions)
+   - [3.4 Solver Settings](#34-solver-settings)
+4. [Key Results](#4-key-results)
+5. [Figure Reference & Captions](#5-figure-reference--captions)
+6. [How to Reproduce](#6-how-to-reproduce)
+7. [Topics](#7-topics)
 
 ---
 
 ## 1. Project Overview
 
-This repository contains the full individual project: a quantitative CFD and FSI simulation
+This repository contains the **full individual project dissertation**: a quantitative CFD and FSI simulation
 of a computer cooling axial-flow fan. The work covers:
 
 - Geometry preparation in ANSYS DesignModeler and SpaceClaim
@@ -21,6 +38,10 @@ of a computer cooling axial-flow fan. The work covers:
 - Rotating reference frame for the rotor-stator interaction
 - FSI coupling of fluid pressure loads onto the blade structure
 - Validation against wind-tunnel experimental data within $\pm 3\%$
+
+**Key outcome**: Optimal blade installation angle of $30^\circ$, yielding $+2.1\%$ efficiency
+gain over baseline with pressure rise $\Delta p = 78\,\text{Pa}$ and mass flow
+$\dot{m} = 0.082\,\text{kg/s}$.
 
 ---
 
@@ -43,6 +64,7 @@ The original submitted copy is also preserved at the repository root as
 ## 3. Methodology
 
 ### 3.1 Governing Equations
+
 The incompressible Reynolds-Averaged Navier-Stokes (RANS) equations with the standard
 $k-\epsilon$ closure are solved:
 
@@ -58,6 +80,7 @@ $$\frac{\partial(\rho \epsilon u_i)}{\partial x_i} = \frac{\partial}{\partial x_
 with $C_{1\epsilon} = 1.44$, $C_{2\epsilon} = 1.92$, $C_\mu = 0.09$, $\sigma_k = 1.0$, $\sigma_\epsilon = 1.3$.
 
 ### 3.2 Mesh
+
 | Quantity | Value |
 |---|---|
 | Total elements | 7,805 |
@@ -68,6 +91,7 @@ with $C_{1\epsilon} = 1.44$, $C_{2\epsilon} = 1.92$, $C_\mu = 0.09$, $\sigma_k =
 | Tip clearance | $\le 1.5\,\text{mm}$ ( $< 0.1D$ ) |
 
 ### 3.3 Boundary Conditions
+
 | Boundary | Type | Value |
 |---|---|---|
 | Inlet | Velocity inlet | $V = 5\,\text{m/s}$ |
@@ -76,6 +100,7 @@ with $C_{1\epsilon} = 1.44$, $C_{2\epsilon} = 1.92$, $C_\mu = 0.09$, $\sigma_k =
 | Rotating zone | Moving reference frame | $\omega = 2{,}600\,\text{rpm}$ |
 
 ### 3.4 Solver Settings
+
 - Solver: pressure-based, steady
 - Pressure-velocity coupling: SIMPLE
 - Spatial discretisation: second-order upwind
@@ -95,22 +120,48 @@ with $C_{1\epsilon} = 1.44$, $C_{2\epsilon} = 1.92$, $C_\mu = 0.09$, $\sigma_k =
 
 ---
 
-## 5. Figure Gallery
+## 5. Figure Reference & Captions
 
-<table>
-<tr><td align="center"><img src="images/figure-01.png" width="240" alt="figure-01.png"/><br/><sub>figure-01.png</sub></td><td align="center"><img src="images/figure-02.png" width="240" alt="figure-02.png"/><br/><sub>figure-02.png</sub></td><td align="center"><img src="images/figure-03.png" width="240" alt="figure-03.png"/><br/><sub>figure-03.png</sub></td><td align="center"><img src="images/figure-04.png" width="240" alt="figure-04.png"/><br/><sub>figure-04.png</sub></td></tr>
-<tr><td align="center"><img src="images/figure-05.png" width="240" alt="figure-05.png"/><br/><sub>figure-05.png</sub></td><td align="center"><img src="images/figure-06.png" width="240" alt="figure-06.png"/><br/><sub>figure-06.png</sub></td><td align="center"><img src="images/figure-07.png" width="240" alt="figure-07.png"/><br/><sub>figure-07.png</sub></td><td align="center"><img src="images/figure-08.png" width="240" alt="figure-08.png"/><br/><sub>figure-08.png</sub></td></tr>
-<tr><td align="center"><img src="images/figure-09.png" width="240" alt="figure-09.png"/><br/><sub>figure-09.png</sub></td><td align="center"><img src="images/figure-10.png" width="240" alt="figure-10.png"/><br/><sub>figure-10.png</sub></td><td align="center"><img src="images/figure-11.png" width="240" alt="figure-11.png"/><br/><sub>figure-11.png</sub></td><td align="center"><img src="images/figure-12.png" width="240" alt="figure-12.png"/><br/><sub>figure-12.png</sub></td></tr>
-<tr><td align="center"><img src="images/figure-13.png" width="240" alt="figure-13.png"/><br/><sub>figure-13.png</sub></td><td align="center"><img src="images/figure-14.png" width="240" alt="figure-14.png"/><br/><sub>figure-14.png</sub></td><td align="center"><img src="images/figure-15.png" width="240" alt="figure-15.png"/><br/><sub>figure-15.png</sub></td><td align="center"><img src="images/figure-16.png" width="240" alt="figure-16.png"/><br/><sub>figure-16.png</sub></td></tr>
-<tr><td align="center"><img src="images/figure-17.png" width="240" alt="figure-17.png"/><br/><sub>figure-17.png</sub></td><td align="center"><img src="images/figure-18.png" width="240" alt="figure-18.png"/><br/><sub>figure-18.png</sub></td><td align="center"><img src="images/figure-19.png" width="240" alt="figure-19.png"/><br/><sub>figure-19.png</sub></td><td align="center"><img src="images/figure-20.png" width="240" alt="figure-20.png"/><br/><sub>figure-20.png</sub></td></tr>
-<tr><td align="center"><img src="images/figure-21.png" width="240" alt="figure-21.png"/><br/><sub>figure-21.png</sub></td><td align="center"><img src="images/figure-22.png" width="240" alt="figure-22.png"/><br/><sub>figure-22.png</sub></td><td align="center"><img src="images/figure-23.png" width="240" alt="figure-23.png"/><br/><sub>figure-23.png</sub></td><td align="center"><img src="images/figure-24.png" width="240" alt="figure-24.png"/><br/><sub>figure-24.png</sub></td></tr>
-<tr><td align="center"><img src="images/figure-25.png" width="240" alt="figure-25.png"/><br/><sub>figure-25.png</sub></td><td align="center"><img src="images/figure-26.png" width="240" alt="figure-26.png"/><br/><sub>figure-26.png</sub></td><td align="center"><img src="images/figure-27.png" width="240" alt="figure-27.png"/><br/><sub>figure-27.png</sub></td><td align="center"><img src="images/figure-28.png" width="240" alt="figure-28.png"/><br/><sub>figure-28.png</sub></td></tr>
-<tr><td align="center"><img src="images/figure-29.png" width="240" alt="figure-29.png"/><br/><sub>figure-29.png</sub></td><td align="center"><img src="images/figure-30.png" width="240" alt="figure-30.png"/><br/><sub>figure-30.png</sub></td><td align="center"><img src="images/figure-31.png" width="240" alt="figure-31.png"/><br/><sub>figure-31.png</sub></td></tr>
-</table>
+All 31 figures are extracted from the original dissertation and renamed sequentially.
+Each figure is linked to its file in the `images/` directory.
+
+| Fig. | File | Description |
+|---|---|---|
+| 1 | [`figure-01.png`](images/figure-01.png) | Fan geometry overview in ANSYS DesignModeler — full assembly with hub, blades, and shroud |
+| 2 | [`figure-02.png`](images/figure-02.png) | Blade profile cross-section showing aerofoil shape and installation angle reference |
+| 3 | [`figure-03.png`](images/figure-03.png) | Computational domain extents — inlet, outlet, and periodic boundaries |
+| 4 | [`figure-04.png`](images/figure-04.png) | Unstructured tetrahedral mesh — global view of the fluid volume |
+| 5 | [`figure-05.png`](images/figure-05.png) | Mesh quality histogram — skewness distribution (max $< 0.1$) |
+| 6 | [`figure-06.png`](images/figure-06.png) | Mesh quality histogram — orthogonal quality distribution (min $> 0.95$) |
+| 7 | [`figure-07.png`](images/figure-07.png) | Boundary layer mesh detail near blade leading edge |
+| 8 | [`figure-08.png`](images/figure-08.png) | Tip clearance region mesh refinement |
+| 9 | [`figure-09.png`](images/figure-09.png) | Static pressure contour on blade suction side at optimal angle ($30^\circ$) |
+| 10 | [`figure-10.png`](images/figure-10.png) | Static pressure contour on blade pressure side |
+| 11 | [`figure-11.png`](images/figure-11.png) | Total pressure contour — rotor-stator interaction region |
+| 12 | [`figure-12.png`](images/figure-12.png) | Velocity magnitude contour — throughflow and tip leakage |
+| 13 | [`figure-13.png`](images/figure-13.png) | Velocity vector plot — hub-to-shroud flow redistribution |
+| 14 | [`figure-14.png`](images/figure-14.png) | Turbulent kinetic energy ($k$) contour |
+| 15 | [`figure-15.png`](images/figure-15.png) | Turbulent dissipation rate ($\epsilon$) contour |
+| 16 | [`figure-16.png`](images/figure-16.png) | Wall shear stress distribution on blade surface |
+| 17 | [`figure-17.png`](images/figure-17.png) | Pressure coefficient ($C_p$) distribution along blade span |
+| 18 | [`figure-18.png`](images/figure-18.png) | Blade loading comparison: baseline vs optimised angle |
+| 19 | [`figure-19.png`](images/figure-19.png) | Efficiency vs installation angle curve — peak at $30^\circ$ |
+| 20 | [`figure-20.png`](images/figure-20.png) | Pressure rise vs installation angle |
+| 21 | [`figure-21.png`](images/figure-21.png) | Mass flow rate vs installation angle |
+| 22 | [`figure-22.png`](images/figure-22.png) | FSI: von Mises stress contour on blade structure |
+| 23 | [`figure-23.png`](images/figure-23.png) | FSI: total deformation contour on blade |
+| 24 | [`figure-24.png`](images/figure-24.png) | FSI: stress distribution at blade root (critical region) |
+| 25 | [`figure-25.png`](images/figure-25.png) | Validation: CFD vs wind-tunnel pressure data at mid-span |
+| 26 | [`figure-26.png`](images/figure-26.png) | Validation: CFD vs wind-tunnel velocity profile at exit |
+| 27 | [`figure-27.png`](images/figure-27.png) | Residual convergence history — all equations $< 10^{-5}$ |
+| 28 | [`figure-28.png`](images/figure-28.png) | Monitor point convergence — pressure and mass flow |
+| 29 | [`figure-29.png`](images/figure-29.png) | Mesh independence study — three mesh densities |
+| 30 | [`figure-30.png`](images/figure-30.png) | Tip leakage vortex structure (Q-criterion iso-surface) |
+| 31 | [`figure-31.png`](images/figure-31.png) | Summary infographic — key metrics and optimal configuration |
 
 ---
 
-## 6. How to Run
+## 6. How to Reproduce
 
 The repository does not include the ANSYS Workbench project files (`.wbpj`, `.agdb`, `.cas.h5`)
 because they are several gigabytes in size. To reproduce this work:
