@@ -294,3 +294,5 @@ The line between the two lists is not always sharp: the MATLAB and ANSYS skills 
 ## 9. Topics
 
 `cfd` `ansys-fluent` `fsi` `ansys-mechanical` `axial-fan` `naca-0012` `fluid-dynamics` `aerospace-engineering` `matlab` `k-omega-sst` `pressure-based-solver` `computational-fluid-dynamics` `engineering-simulation` `thermal-management`
+
+<!-- cache-bust: 2026-06-06-1455 -->
